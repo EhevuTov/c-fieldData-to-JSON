@@ -9,12 +9,17 @@ program_LIBRARY_DIRS :=
 program_LIBRARIES :=
 
 CPPFLAGS += $(foreach includedir,$(program_INCLUDE_DIRS),-I$(includedir))
+CPPFLAGS += -std=c++11
+
 LDFLAGS += $(foreach librarydir,$(program_LIBRARY_DIRS),-L$(librarydir))
 LDFLAGS += $(foreach library,$(program_LIBRARIES),-l$(library))
 
 .PHONY: all clean distclean
 
-all: $(program_NAME)
+all: $(program_NAME) test
+
+test:
+	$(program_NAME)
 
 $(program_NAME): $(program_OBJS)
 	$(LINK.cc) $(program_OBJS) -o $(program_NAME)

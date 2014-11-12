@@ -20,43 +20,43 @@ enum PresenceEnum {Presence,NoPresence,PresenceRequired,PresenceOnly};
 
 struct FieldDataType
 {
-    char *          FTitle;
-    char *          FDescr;
-    FFEnum          FFilterFormat;
-    DataType        FFieldType;
-    char *          FEnum;
-    int             FLimit;
-    char *          FFormats;
-    PresenceEnum    FPresence;
-    int             FSize;
+    const char *	FTitle;
+    const char *	FDescr;
+    FFEnum      	FFilterFormat;
+    DataType    	FFieldType;
+    const char *	FEnum;
+    double				FLimit;
+    const char *	FFormats;
+    PresenceEnum	FPresence;
+    int						FSize;
 };
 
 struct CategoryDataType
 {
-    char *          CTitle;
+    const char *          CTitle;
     FFEnum          CFilterFormat;
-    char *          CChildren;
+    const char *          CChildren;
 };
 
 struct ReportFormatDataType
 {
-    char *          RFormatName;
+    const char *          RFormatName;
 };
 
 struct ProtocolDataType
 {
-    char *          PTitle;
-    char *          PChildren;
+    const char *          PTitle;
+    const char *          PChildren;
 };
 
 struct EngineFieldDataType
 {
     int             ProtocolIndex;
-    char *          ProtocolName;
+    const char *          ProtocolName;
     int             ParameterIndex;
-    char *          ParameterName;
+    const char *          ParameterName;
     int             FieldId;
-    char *          FieldName; // Available format codes. See comments witn "ReportFormatDataType" initialization.
+    const char *          FieldName; // Available format codes. See comments witn "ReportFormatDataType" initialization.
     DataType        FieldType;
     int             FieldSize;
 };
@@ -65,7 +65,7 @@ struct ProtocolNamesIcons
 {
     int             ProtcolIndex;
     int             ProtocolIcon;
-    char *          ProtocolName;
+    const char *          ProtocolName;
 };
 
 const int EngineFieldOffset = 10000;
